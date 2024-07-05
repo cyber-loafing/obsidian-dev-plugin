@@ -13,6 +13,7 @@ export class BookTranslator extends ItemView {
 	navHeader: NavHeader;
 	resultEl: HTMLElement;
 	loadingEl: HTMLElement;
+	translateToLanguage: string = "zh";
 
 	constructor(leaf: WorkspaceLeaf, plugin: BookMasterPlugin) {
 		super(leaf);
@@ -96,7 +97,7 @@ export class BookTranslator extends ItemView {
 			appid: APP_ID,
 			salt: salt,
 			from: from,
-			to: to,
+			to: this.translateToLanguage,
 			sign: sign
 		};
 		var url = BAIDU_TRANSLATE_API_URL + '?' + new URLSearchParams(data).toString();
@@ -125,7 +126,8 @@ export class BookTranslator extends ItemView {
 
 
 		this.navHeader.addAction("gear", "设置", (evt) => {
-			console.log("设置")
+			this.openSelectTranslateToLanguageMenu(evt);
+			
 		});
 
 		this.navHeader.addAction("copy", "复制", (evt) => {
@@ -157,6 +159,27 @@ export class BookTranslator extends ItemView {
 		this.resultEl = this.contentEl.createEl("div");
 		this.resultEl.style.padding = "1rem";
 		this.resultEl.style.userSelect = "true";
+	}
+
+	private openSelectTranslateToLanguageMenu(evt: MouseEvent) {
+		const menu = new Menu();
+		menu.addItem((item) => {
+			item
+				.setTitle("中文")
+				.onClick((evt) => {
+					this.translateToLanguage = "zh";
+				})
+			item.setChecked(this.translateToLanguage === "zh");
+		})
+		menu.addItem((item) => {
+			item
+				.setTitle("英文")
+				.onClick((evt) => {
+					this.translateToLanguage = "en";
+				})
+			item.setChecked(this.translateToLanguage === "en");
+		})
+		menu.showAtMouseEvent(evt);
 	}
 
 }
