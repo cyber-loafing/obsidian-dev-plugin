@@ -1,0 +1,32 @@
+{
+    "name": "obsidian-bookmaster-plugin",
+    "version": "0.1.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "dev": "vite build --watch",
+        "build": "vite build"
+    },
+    "keywords": [
+        "obsidian",
+        "book",
+        "pdf",
+        "annotation"
+    ],
+    "author": "chenghongyao",
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^3.1.2",
+        "tslib": "^2.4.0",
+        "typescript": "^4.8.4",
+        "vite": "^3.1.4",
+        "vue": "^3.2.36"
+    },
+    "dependencies": {
+        "@pdftron/webviewer": "^8.2.0",
+        "annotpdf": "^1.0.15",
+        "epubjs": "^0.3.93",
+        "monkey-around": "^2.3.0",
+        "obsidian": "1.4.0",
+        "ts-md5": "^1.3.1"
+    }
+}

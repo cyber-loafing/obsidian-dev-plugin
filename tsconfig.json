@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "module": "esnext",
+        "target": "ESNext",
+        "allowJs": true,
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "lib": ["dom", "ES5", "scripthost", "es2015", "ES6", "ES7"]
+    },
+    "include": ["**/*.ts"]
+  }
